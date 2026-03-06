@@ -1,14 +1,17 @@
 # moriko-app
 **deploy grupitöö | KTA-25**
 
-**Meeskond:** Johanna Okas (GitHub admin), Mona-Marii Kokk (Server admin), Elizabeth Mõistlik (QA/QC, tester) 
+### Grupp
+Johanna Okas (GitHub admin)\
+Mona-Marii Kokk (Server admin)\
+Elizabeth Mõistlik (QA/QC, tester) 
 
 ### Info
 **Domain host:** name.com\
 **Security:** Cloudflare\
 **Deployment:** Oracle Cloud\
-_Image: Ubuntu 24.04_ 
-_VM Instance: morikoapp 79.76.56.171_\ 
+_Image: Ubuntu 24.04_\
+_VM Instance: morikoapp 79.76.56.171_\
 _VCN: moriko_cloud_
 
 **E-mail:** Gmail -> Cloudflare -> sendgrid
@@ -16,9 +19,9 @@ _VCN: moriko_cloud_
 
 ### Töökulg
 
-Esimene päev kulus oma projekti ülesehituse planeerimise, serverite seadistamise ning teemaga lähemalt tutvumise peale. Tegime muudatusi varasemas e-maili seadistuses ning saame nüüd seda koos kasutada. 
+Esimene päev kulus oma projekti kontseptsiooni, selle ülesehituse planeerimise, serverite seadistamise ning teemaga lähemalt tutvumise peale. Tegime muudatusi varasemas e-maili seadistuses ning saame nüüd seda koos kasutada. 
 
-Veebilehe ülesehitus pole veel kivisse raiutud, kuid tahaks proovida kasutada Django'
+Veebilehe ülesehitus pole veel kivisse raiutud, kuid tahaks proovida Django frameworki.
 
 ### Kuidas deploy töötab
 
