@@ -14,7 +14,7 @@ _Image: Ubuntu 24.04_\
 _VM Instance: morikoapp 79.76.56.171_\
 _VCN: moriko_cloud_
 
-**E-mail:** Gmail -> Cloudflare -> sendgrid
+**E-mail:** Gmail -> Cloudflare -> sendgrid\
 **Veebileht:** moriko.app
 
 ### Töökulg
