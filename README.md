@@ -30,41 +30,6 @@ Oota, varsti jõuan selleni. Rahu!
 
 ### Esinenud probleemid ja lahendused
 
-
-<details>
-<summary>Ei saanud teisest arvutist serverile ligi</summary>
-
-    Laptopi terminalist ei saanud serverile ligi ning probleem oli selles, et ssh võtmel olid valed õigused peal.\
-    Algselt said faili õigused muudetud commandiga chmod 400, kuid ikka tuli serveritelt veateade: "Permission denied (publickey)."\
-    Hiljem sai proovitud chmod 600, see lahendas probleemi ja serverile sai laptoist ligi.
-    
-</details>
-
-<details>
-<summary>~</summary>
-</details>
-
-<details>
-<summary>E-maili seadistus</summary>
-
-Internet\
-    ↓\
-Cloudflare MX\
-   ↓\
-Cloudflare Email Routing\
-   ↓\
-Gmail Inbox\
-   ↓\
-Gmail → SendGrid SMTP\
-   ↓\
-Recipient inbox
-
-*Cloudflare → receives mail*\
-*Gmail → reads mail*\
-*SendGrid → sends mail with proper authentication*
-
-
-**Tekkis probleem:** Meilile vastates jõudis saajale kiri @gmail.com aadressilt, mitte @moriko.app-ilt
-
-Seadistused said üle kontrollitud, testisime uuesti ja sama viga enam ei esinenud. 
-</details>
+Laptopi terminalist ei saanud serverile ligi ning probleem oli selles, et ssh võtmel olid valed õigused peal.\
+Algselt said faili õigused muudetud commandiga chmod 400, kuid ikka tuli serveritelt veateade: "Permission denied (publickey)."\
+Hiljem sai proovitud chmod 600, see lahendas probleemi ja serverile sai laptopist ligi.
