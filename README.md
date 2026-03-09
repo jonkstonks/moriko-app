@@ -32,7 +32,12 @@ Oota, varsti jõuan selleni. Rahu!
 
 
 <details>
-<summary>~</summary>
+<summary>Ei saanud teisest arvutist serverile ligi</summary>
+
+    Laptopi terminalist ei saanud serverile ligi ning probleem oli selles, et ssh võtmel olid valed õigused peal.\
+    Algselt said faili õigused muudetud commandiga chmod 400, kuid ikka tuli serveritelt veateade: "Permission denied (publickey)."\
+    Hiljem sai proovitud chmod 600, see lahendas probleemi ja serverile sai laptoist ligi.
+    
 </details>
 
 <details>
