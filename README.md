@@ -4,14 +4,14 @@
 ### Grupp
 Johanna Okas (GitHub admin)\
 Mona-Marii Kokk (Server admin)\
-Elizabeth Mõistlik (QA/QC, tester) 
+Elizabeth Mõistlik (tester)
 
 ### Info
 **Domain host:** name.com\
 **Security:** Cloudflare\
 **Deployment:** Oracle Cloud\
 _Image: Ubuntu 24.04_\
-_VM Instance: morikoapp 79.76.56.171_\
+_VM Instance: morikoapp 207.127.92.120_\
 _VCN: moriko_cloud_
 
 **E-mail:** Gmail -> Cloudflare -> sendgrid\
@@ -32,8 +32,8 @@ Läks liiga keeruliseks ja jääme lihtlabase HTML-i peale hetkel. Peab targemak
 1. Kood pushitakse GitHubi main branchi
 2. GitHub Actionsi workflow triggerib
 3. SSH serverisse
-4. Server pullib viimase koodi, update'ib dependencyd
-5. Nginx peaks siis näitama uuendatud lehte 
+4. Server pullib viimase koodi
+5. Nginx serveerib uuendatud lehe 
 
 ### Esinenud probleemid ja lahendused
 
