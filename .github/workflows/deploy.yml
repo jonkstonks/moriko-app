@@ -1,33 +1,34 @@
-name: Auto Deploy Moriko App
+name: Deploy Moriko App
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+concurrency:
+  group: moriko-production-deploy
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.8
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SERVER_SSH_KEY }}
-        port: 22
+        port: ${{ secrets.SERVER_PORT || '22' }}
         script: |
-          set -e
+          set -euo pipefail
           cd /home/ubuntu/moriko-app
+          git fetch --prune origin main
+          git checkout -f main
           git reset --hard origin/main
-          git pull origin main
-          source venv/bin/activate
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          python manage.py migrate --noinput
-          python manage.py collectstatic --noinput
-          sudo systemctl restart gunicorn
+          echo "Deployment completed on $(date -u '+%Y-%m-%d %H:%M:%S UTC')"

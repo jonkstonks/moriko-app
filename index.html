@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantiline Veebileht</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oxanium', cursive;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            text-align: justify;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .flex-container {
+            max-width: 1500px;
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #ddd;
+            padding: 1rem 0;
+        }
+
+        header .flex-container {
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            text-transform: uppercase;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 3px solid #fc2d91;
+            padding-bottom: 0.2rem;
+        }
+
+        main {
+            max-width: 50%;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+
+        /* Summary */
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 3rem 0;
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 0 1rem 2rem 0;
+        }
+
+        /* Button */
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #fc2d91;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: opacity 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Oxanium', cursive;
+        }
+
+        .button:hover {
+            opacity: 0.8;
+        }
+
+        .button.secondary {
+            background-color: #F7D002;
+            color: #333;
+            font-size: 0.9rem;
+            padding: 0.6rem 1rem;
+        }
+
+        /* Article styles */
+        article {
+            background: white;
+            width: 900px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: box-shadow 0.3s;
+        }
+
+        article aside {
+            background: #454e9e17;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        article:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        article h3 {
+            font-size: 1.3rem;
+            margin: 0 1.5rem 1.5rem 0;
+            color: #2c3e50;
+        }
+
+        article h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        article p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Aside */
+        aside {
+            background: white;
+            width: 40%;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        aside p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        aside details {
+            margin-bottom: 1.5rem;
+        }
+
+        aside:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Figure */
+        figure {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        figure img {
+            width: 100%;
+            height: 400px;
+            opacity: 0.3;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            display: block;
+            transition: 0.5s;
+            margin: auto;
+        }
+
+        figure img:hover {
+            opacity: 1;
+            zoom: 1.5;
+        }
+
+        figcaption {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #5d6581;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        footer .container {
+            text-align: left;
+        }
+
+        footer .flex-container {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .logo {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        footer nav a {
+            color: #ecf0f1;
+        }
+
+        footer nav a:hover {
+            border-bottom: 3px solid #fc2d91;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+
+            header .flex-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            article h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="flex-container">
+            <a href="" class="logo">LOGO</a>
+            <nav>
+                <ul>
+                    <li><a href="">link 1</a></li>
+                    <li><a href="">link 2</a></li>
+                    <li><a href="">link 3</a></li>
+                    <li><a href="">link 4</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Section 1: Intro -->
+        <section>
+            <div class="container">
+                <h1>Intro text</h1>
+                <p class="intro-text">
+                    Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Fuga, quod. Modi deleniti voluptas esse quam hic eaque ut quasi quae. Aperiam magnam et vitae
+                    repudiandae necessitatibus accusamus cupiditate explicabo praesentium. Culpa voluptatibus
+                    perferendis optio alias sint animi fugit? Iusto, inventore! Consequatur eos quaerat harum
+                    ratione facere, voluptas ducimus ipsam tempore.
+                </p>
+                <a href="" class="button primary">Click me</a>
+            </div>
+        </section>
+
+        <!-- Section 2: Two column with aside -->
+        <section>
+            <div class="container">
+                <h2>Flex container</h2>
+                <div class="flex-container">
+                    <article>
+                        <h3>Title</h3>
+                        <aside>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, officia.
+                                Amet cumque fugit inventore ad, accusamus quis eum perspiciatis corporis.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </aside>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <figure>
+                            <img src="https://i.pinimg.com/736x/27/ae/9c/27ae9c746a885e64dec176cc7e677dfe.jpg"
+                                alt="Pilt" style="object-fit: cover;">
+                            <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, dolore.
+                            </figcaption>
+                        </figure>
+                        <p>Lorem ipsum dolor sit amet.
+                            Maiores et excepturi totam quibusdam.
+                            Sint hic quo facilis obcaecati!
+                            Soluta quo veritatis cum. A.
+                            Delectus cupiditate dolore porro accusantium?
+                            Nihil aliquid quam deserunt nostrum!
+                            Soluta corporis consequuntur repudiandae voluptates.
+                            Possimus illum quo a iste!
+                            Eum, harum vero? Excepturi, eaque.
+                            Minus, cum. Mollitia, amet similique!</p>
+                    </article>
+                    <aside>
+                        <details open>
+                            <summary>Summary 1</summary>
+                            <p>
+                                Lorem ipsum dolor sit amet.
+                                Fugiat facere voluptas doloremque veritatis?
+                                Consequatur in quidem molestiae aut.
+                                Distinctio quasi autem placeat inventore.
+                                Aperiam asperiores suscipit vero autem?
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, voluptas?
+                                Illum asperiores odio, doloribus recusandae facere assumenda voluptate sit quo?
+                                Quis corporis nihil laborum recusandae, minima voluptatem sed totam distinctio?
+                                Assumenda repellat voluptatibus asperiores culpa deserunt veniam! Voluptates, tempora
+                                error.
+                                Nulla impedit earum numquam qui aperiam atque nam consequatur consectetur!
+                            </p>
+                        </details>
+
+                        <details open>
+                            <summary>Summary 2</summary>
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, dolorum?
+                                Ducimus rerum ut ea sunt facere deserunt. Architecto, ipsam fugiat.
+                                Lorem ipsum dolor sit.
+                                Laborum illo ullam ea?
+                                Dicta, eveniet. Quaerat, quisquam.
+                                Omnis eligendi facere obcaecati?
+                                Ipsa rem eveniet cupiditate?
+                                Lorem ipsum dolor sit amet.
+                                Eaque voluptas incidunt nulla voluptatum.
+                                Delectus temporibus quam possimus pariatur.
+                                Quam voluptatibus nulla quaerat ex.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nisi itaque et tempora
+                                totam! Magnam.
+                                Totam magnam at velit nihil architecto, dolorum, maiores, inventore assumenda sit dolore
+                                praesentium quisquam rerum.
+                                Corrupti magnam dolor animi iste, odit laudantium ipsa labore deserunt sapiente
+                                voluptatibus minima quisquam minus.
+                                Ex, reiciendis dignissimos! Est, iste porro eos non omnis ea? Architecto qui id
+                                temporibus doloremque!
+                                Ullam porro quaerat in accusamus quos doloremque illo reiciendis adipisci, fugit vero
+                                quia facere nesciunt!
+                            </p>
+                            </summary>
+                        </details>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Three columns -->
+        <section>
+            <div class="container">
+                <h2>Three columns</h2>
+                <div class="flex-container">
+                    <article>
+                        <h4>Title 1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <a href="" class="button secondary">Click me</a>
+                        <a href="" class="button secondary">Click me</a>
+                        <a href="" class="button secondary">Click me</a>
+                    </article>
+                    <article>
+                        <h4>Title 2</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <a href="" class="button secondary">Click me</a>
+                        <a href="" class="button secondary">Click me</a>
+                        <a href="" class="button secondary">Click me</a>
+                    </article>
+                    <article>
+                        <h4>Title 3</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <a href="" class="button secondary">Click me</a>
+                        <a href="" class="button secondary">Click me</a>
+                        <a href="" class="button secondary">Click me</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Two columns -->
+        <section>
+            <div class="container">
+                <h2>Two columns</h2>
+                <div class="flex-container">
+                    <article>
+                        <h4>Title 1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <a href="" class="button secondary">Click me</a>
+                    </article>
+                    <article>
+                        <h4>Title 2</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <a href="" class="button secondary">Click me</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="flex-container">
+                <a href="" class="logo">
+                    <img src="" alt="LOGO">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="">link 1</a></li>
+                        <li><a href="">link 2</a></li>
+                        <li><a href="">link 3</a></li>
+                        <li><a href="">link 4</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

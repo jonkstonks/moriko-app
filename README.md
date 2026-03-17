@@ -20,9 +20,11 @@ _VCN: moriko_cloud_
 ### Töökulg
 
 Esimene päev kulus oma projekti kontseptsiooni, selle ülesehituse planeerimise, serverite seadistamise ning teemaga lähemalt tutvumise peale. Tegime muudatusi varasemas e-maili seadistuses ning saame nüüd seda koos kasutada. 
-Veebilehe ülesehitus pole veel kivisse raiutud, kuid tahaks proovida Django frameworki.
-...
-Proovime Django`ga edasi minna, serveris sai seadistatud Gunicorn service, mis on Python WSGI HTTP server UNIXile ja Nginx.
+Veebilehe ülesehitus pole veel kivisse raiutud, kuid tahaks proovida Django frameworki.\
+...\
+Proovime Django`ga edasi minna, serveris sai seadistatud Gunicorn service, mis on Python WSGI HTTP server UNIXile ja Nginx.\
+...\
+Läks liiga keeruliseks ja jääme lihtlabase HTML-i peale hetkel. Peab targemaks saama. :D
 
 
 ### Kuidas deploy töötab
@@ -41,4 +43,6 @@ Hiljem sai proovitud chmod 600, see lahendas probleemi ja serverile sai mujalt l
 
 
 Peale GitHub deploy actioni seadistamist tuli kohe ilus meil selle kohta, kuidas deploy failis 7 sekundiga.\
-Peale gunicorni ja nginx seadistamist võttis serverile rebooti tegemine kahtlaselt kaua aega ja server ei jooksnud veel esimese deploy ajal. 
+Peale gunicorni ja nginx seadistamist võttis serverile rebooti tegemine kahtlaselt kaua aega ja server ei jooksnud veel esimese deploy ajal.
+
+
