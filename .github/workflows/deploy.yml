@@ -23,5 +23,11 @@ jobs:
         script: |
           set -euo pipefail
           cd /home/ubuntu/moriko-app
-          git pull origin main
+          git fetch --prune origin main
+          git checkout -f main
+          git reset --hard origin/main
+
+          sudo cp /home/ubuntu/moriko-app/index.html /var/www/html/index.html
+
+          sudo systemctl reload nginx
           echo "Deployment completed on $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
