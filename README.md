@@ -45,4 +45,5 @@ Hiljem sai proovitud chmod 600, see lahendas probleemi ja serverile sai mujalt l
 Peale GitHub deploy actioni seadistamist tuli kohe ilus meil selle kohta, kuidas deploy failis 7 sekundiga.\
 Peale gunicorni ja nginx seadistamist võttis serverile rebooti tegemine kahtlaselt kaua aega ja server ei jooksnud veel esimese deploy ajal.
 
-
+17.03.2026
+Veebileht ei kajastanud serveri sisu. Natukese uurimise peale tuli välja, et tegemata oli jäänud portide avamine, seega sai avatud serveris pordid(ja installisin Certboti, mis parandas ära ka Nginxi configi) ning Oracle Cloudis ingress rules uuendus portide 80 ja 443 näol. Veendusin ka, et Cloudis on A kirjed õiged ning pärast kõike seda oli õige pilt olemas. - Mona
