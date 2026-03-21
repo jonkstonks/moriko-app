@@ -610,7 +610,7 @@ async function saveToGallery() {
       formData.append('image', blob, `sprite-${Date.now()}.png`);
       formData.append('title', `Sprite #${Date.now()}`);
       formData.append('label', CANVAS_SIZES[canvasSizeIdx].label);
-
+      formData.append('status', 'pending');
       await pb.collection('drawings').create(formData);
     } catch (err) {
       console.error(err);
