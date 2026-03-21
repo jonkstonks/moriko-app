@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MORIKO APP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="flex-container">
+    <a href="#hero" class="logo">ฅ^•ﻌ•^ฅ MORIKO APP ฅ^•ﻌ•^ฅ <span class="ver">(ver 0.0.0.1)</span></a>
+
+    <nav class="header-nav">
+      <a href="#hero">❤ Welcome ❤</a>
+      <a href="#teine" class="tool-link">✏ Draw ✏</a>
+      <a href="./Gallery/gallery.html" class="tool-link" target="_blank">✿ Gallery ✿</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <script>
+  // ─── Drawer ───
+  const btn     = document.getElementById('menuBtn');
+  const drawer  = document.getElementById('drawer');
+  const overlay = document.getElementById('drawerOverlay');
+
+  function openDrawer()  { btn.classList.add('is-open');    drawer.classList.add('is-open');    overlay.classList.add('is-open');    }
+  function closeDrawer() { btn.classList.remove('is-open'); drawer.classList.remove('is-open'); overlay.classList.remove('is-open'); }
+
+  btn.addEventListener('click', () => btn.classList.contains('is-open') ? closeDrawer() : openDrawer());
+  overlay.addEventListener('click', closeDrawer);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // ─── Iframe click-to-activate ───
+  // Prevents the page from scrolling into the iframe accidentally;
+  // user must click the overlay first to give it pointer focus.
+  function activateFrame(frameId, overlayId) {
+    document.getElementById(overlayId).style.display = 'none';
+    document.getElementById(frameId).style.pointerEvents = 'all';
+    document.getElementById(frameId).focus();
+  }
+
+  // Re-show the overlay when user clicks outside the embed
+  document.addEventListener('click', e => {
+    ['studio', 'gallery'].forEach(name => {
+      const frame   = document.getElementById(name + 'Frame');
+      const overlay = document.getElementById(name + 'Overlay');
+      if (!frame || !overlay) return;
+      if (!frame.contains(e.target) && !e.target.closest('.embed-wrap')) {
+        overlay.style.display = '';
+        frame.style.pointerEvents = 'none';
+      }
+    });
+  });
+</script>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<div class="drawer" id="drawer">
+  <nav>
+    <ul>
+      <li><a href="#hero">❤ Welcome ❤</a></li>
+      <li class="tool-item"><a href="#teine">✏ Draw ✏</a></li>
+      <li class="tool-item"><a href="./Gallery/gallery.html" target="_blank">✿ Gallery ✿</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="container">
+      <h1>Meow Meow Meow</h1>
+      <p class="intro-text"><br>
+        Draw pixel art cats and share them with your friends! <br>
+        This is a demo of a pixel art drawing app made with HTML5 Canvas and JavaScript. <br>
+        Click the button below to start drawing your own pixel cat! <br>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── DRAW YOUR PIXEL CAT ─── -->
+  <section id="teine">
+    <div class="container">
+      <div class="section-header">
+        <h2>DRAW YOUR PIXEL CAT</h2>
+        <a href="./Draw/draw.html" target="_blank" class="section-open-btn"> open full screen ↗</a>
+      </div>
+      <div class="embed-wrap">
+        <iframe
+          src="./Draw/draw.html"
+          title="Moriko App"
+          class="embed-frame"
+          id="studioFrame"
+          allow="clipboard-write"
+          loading="lazy">
+        </iframe>
+        <div class="embed-overlay" id="studioOverlay" onclick="activateFrame('studioFrame', 'studioOverlay')">
+          <span class="embed-overlay-text">✏️ Click to start drawing</span>
+        </div>
+      </div>
+
+      <div class="aside-below">
+        <details>
+          <summary>Meow?</summary>
+          <p><span style="font-family:'Lucida Console';line-height:14px;font-size:12px;display:inline-block;color:#a0674a;">
+            ───▐▀▄──────▄▀▌───▄▄▄▄▄▄▄<br>
+            ───▌▒▒▀▄▄▄▄▀▒▒▐▄▀▀▒██▒██▒▀▀▄<br>
+            ──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄<br>
+            ──▌▒▒▒▒▒▒▒▒▒▒▒▒▒▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄<br>
+            ▀█▒▒█▌▒▒█▒▒▐█▒▒▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌<br>
+            ▀▌▒▒▒▒▒▀▒▀▒▒▒▒▒▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐&nbsp;▄▄<br>
+            ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄█▒█<br>
+            ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀<br>
+            ──▐▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄▌<br>
+            ────▀▄▄▀▀▀▀▄▄▀▀▀▀▀▀▄▄▀▀▀▀▀▀▄▄▀</span></p>
+        </details>
+        <details>
+          <summary>Meow!</summary>
+          <p><span style="font-family:'Lucida Console';line-height:14px;font-size:12px;display:inline-block;color:#a0674a;">
+            ───▐▀▄──────▄▀▌───▄▄▄▄▄▄▄<br>
+            ───▌▒▒▀▄▄▄▄▀▒▒▐▄▀▀▒██▒██▒▀▀▄<br>
+            ──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄<br>
+            ──▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄<br>
+            ▀█▒▒█▌▒▒█▒▒▐█▒▒▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌<br>
+            ▀▌▒▒▒▒▒▀▒▀▒▒▒▒▒▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐&nbsp;▄▄<br>
+            ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄█▒█<br>
+            ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀<br>
+            ──▐▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄▌<br>
+            ────▀▄▄▀▀▀▀▄▄▀▀▀▀▀▀▄▄▀▀▀▀▀▀▄▄▀</span></p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="flex-container">
+      <a href="#hero" class="logo">ฅ^•ﻌ•^ฅ MORIKO APP ฅ^•ﻌ•^ฅ</a>
+      <nav>
+        <ul>
+          <li><a href="#hero">❤ Welcome ❤</a></li>
+          <li><a href="#teine">✏ Draw ✏</a></li>
+          <li><a href="../Gallery/gallery.html" target="_blank">✿ Gallery ✿</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
