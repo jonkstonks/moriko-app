@@ -615,7 +615,7 @@ async function saveToGallery() {
       formData.append('image', blob, `sprite-${Date.now()}.png`);
       await pb.collection('drawings').create(formData);
     } catch (err) {
-      showToast('Submitted for review! ✓');
+      showToast('Submitted for review!');
       console.error(err);
     }
   }, 'image/png');
