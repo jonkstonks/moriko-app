@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moriko Gallery</title>
+  <link rel="stylesheet" href="gallery.css"/>
+</head>
+<body>
+
+  <!-- ─── Header ─── -->
+  <header>
+    <div class="logo">MORIKO <span>GALLERY</span></div>
+    <div class="header-right">
+      <span class="header-count" id="headerCount">0 sprites</span>
+      <a href="../index.html" class="back-btn">&larr; MAIN PAGE</a>
+    </div>
+  </header>
+
+  <!-- ─── Filter toolbar ─── -->
+  <div class="toolbar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active">ALL</button>
+    <button class="filter-btn">16&times;16</button>
+    <button class="filter-btn">32&times;32</button>
+    <button class="filter-btn">64&times;64</button>
+  </div>
+
+  <!-- ─── Gallery grid ─── -->
+  <main>
+    <div class="gallery-grid" id="galGrid"></div>
+  </main>
+
+  <!-- ─── Lightbox ─── -->
+  <div class="lightbox" id="lightbox">
+    <!-- Left arrow -->
+    <button class="lb-arrow lb-arrow-left" id="btnPrev">&#10094;</button>
+
+    <div class="lb-inner">
+      <!-- Close button top right -->
+      <button class="lb-close" id="btnCloseLightbox">&#10005;</button>
+      <img id="lbImg" src="" alt="sprite preview"/>
+      <div class="lb-meta" id="lbMeta"></div>
+    </div>
+
+    <!-- Right arrow -->
+    <button class="lb-arrow lb-arrow-right" id="btnNext">&#10095;</button>
+  </div>
+
+  <!-- ─── Clear-all confirmation modal ─── -->
+  <div class="modal-overlay" id="clearModal">
+    <div class="modal">
+      <div class="modal-title">&#9888; CLEAR ALL</div>
+      <div class="modal-body">Delete all sprites from the gallery? This cannot be undone.</div>
+      <div class="modal-btns">
+        <button class="modal-btn cancel" id="btnCancelClear">CANCEL</button>
+        <button class="modal-btn confirm" onclick="clearAll()">DELETE ALL</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="gallery.js"></script>
+</body>
+</html>
