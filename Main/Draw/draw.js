@@ -6,7 +6,7 @@
 // PocketBase: https://pocketbase.io/
 import PocketBase from 'https://cdn.jsdelivr.net/npm/pocketbase/dist/pocketbase.es.mjs';
 
-const pb = new PocketBase('http://207.127.92.120:8090/_/');
+const pb = new PocketBase('http://207.127.92.120:8090/');
 
 // ═══════════════════════════════════════════════
 //  CONFIG
