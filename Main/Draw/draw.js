@@ -607,7 +607,7 @@ async function saveToGallery() {
   preview.toBlob(async (blob) => {
     try {
       const formData = new FormData();
-      formData.append('status', 'pending');  // move this FIRST
+      formData.append('status', 'pending');  // keep this FIRST
       formData.append('title', `Sprite #${Date.now()}`);
       formData.append('label', CANVAS_SIZES[canvasSizeIdx].label);
       formData.append('image', blob, `sprite-${Date.now()}.png`);
@@ -621,9 +621,9 @@ async function saveToGallery() {
 
 
 function downloadCanvas() {
-  const out = exportPixels(Math.max(4, Math.floor(512 / Math.max(cols, rows))));
+  const out = exportPixels(Math.max(4, Math.floor(750 / Math.max(cols, rows))));
   const a   = document.createElement('a');
-  a.download = `pixel-studio-${Date.now()}.png`;
+  a.download = `morikoapp-${Date.now()}.png`;
   a.href     = out.toDataURL('image/png');
   a.click();
 }
