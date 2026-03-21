@@ -4,7 +4,7 @@
 
 import PocketBase from 'https://cdn.jsdelivr.net/npm/pocketbase/dist/pocketbase.es.mjs';
 
-const pb = new PocketBase('http://207.127.92.120:8090/');
+const pb = new PocketBase('https://moriko.app/pocketbase');
 
 // ═══════════════════════════════════════════════
 //  REACTIONS CONFIG
