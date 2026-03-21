@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - functional
 
 jobs:
   deploy:
