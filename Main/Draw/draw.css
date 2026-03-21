@@ -768,3 +768,38 @@ input[type="color"] {
   background: var(--brown-pale);
 }
 
+/* ═══════════════════════════════════════════════
+   TOAST NOTIFICATION
+   ═══════════════════════════════════════════════ */
+#toast {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(253,245,236,0.97);
+  border: 2px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 0.4rem 0.9rem 0.4rem 0.4rem;
+  box-shadow: 0 4px 16px rgba(160,103,74,0.2);
+  font-family: 'DotGothic16', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#toast .toast-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+ 

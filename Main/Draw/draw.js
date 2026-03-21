@@ -330,6 +330,7 @@ function undoAction() {
   if (!undoStack.length) return;
   grid = undoStack.pop();
   redrawAll();
+  showToast('Undo')
 }
 
 // ═══════════════════════════════════════════════
@@ -581,6 +582,7 @@ function clearCanvas() {
   pushUndo();
   grid.fill(null);
   redrawAll();
+  showToast('Canvas cleared');
 }
 
 function exportPixels(scale) {
@@ -613,6 +615,7 @@ async function saveToGallery() {
       formData.append('image', blob, `sprite-${Date.now()}.png`);
       await pb.collection('drawings').create(formData);
     } catch (err) {
+      showToast('Submitted for review! ✓');
       console.error(err);
     }
   }, 'image/png');
@@ -626,6 +629,7 @@ function downloadCanvas() {
   a.download = `morikoapp-${Date.now()}.png`;
   a.href     = out.toDataURL('image/png');
   a.click();
+  showToast('Downloaded!');
 }
 
 // ═══════════════════════════════════════════════
@@ -650,8 +654,22 @@ window.addEventListener('resize', () => {
 });
 
 // ═══════════════════════════════════════════════
+//  TOAST
+// ═══════════════════════════════════════════════
+let toastT;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.querySelector('.toast-msg').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ═══════════════════════════════════════════════
 //  BOOT — wait for layout before measuring
 // ═══════════════════════════════════════════════
+
 requestAnimationFrame(() => {
   requestAnimationFrame(() => {
     // Set initial pen size section state (pen is default tool, so enabled)
