@@ -47,3 +47,5 @@ Peale gunicorni ja nginx seadistamist võttis serverile rebooti tegemine kahtlas
 
 17.03.2026
 Veebileht ei kajastanud serveri sisu. Natukese uurimise peale tuli välja, et tegemata oli jäänud portide avamine, seega sai avatud serveris pordid(ja installisin Certboti, mis parandas ära ka Nginxi configi) ning Oracle Cloudis ingress rules uuendus portide 80 ja 443 näol. Veendusin ka, et Cloudis on A kirjed õiged ning pärast kõike seda oli õige pilt olemas. - Mona
+21.03.2026
+Deploysin uue veebisaidi sisu koos javascriptiga, serverisse läks ka PocketBase service, hetkel serveri suhtlus kõige vajalikuga toimib ning jätkame arendust =) - Mona 
