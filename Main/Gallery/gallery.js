@@ -37,7 +37,8 @@ let reactionCounts = {}; // { drawingId: { adorbs: 3, swag: 1 ... } }
 // ═══════════════════════════════════════════════
 async function loadGallery() {
   try {
-    const result = await pb.collection('drawings').getList(1, 200, { sort: '-created' });
+    const result = await pb.collection('drawings').getList(1, 200, { sort: '-created',
+  filter: 'status = "approved"' });
     gallery = result.items.map(record => ({
       id:       record.id,
       title:    record.title,
