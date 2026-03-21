@@ -794,5 +794,5 @@ input[type="color"] {
   transition: opacity 0.25s, transform 0.25s;
 }
 #toast.show { opacity: 1; transform: translateY(0); }
-.toast-icon { width: 40px; height: 40px; object-fit: contain; }
+.toast-icon { width: 28px; height: 28px; object-fit: contain; }
  
