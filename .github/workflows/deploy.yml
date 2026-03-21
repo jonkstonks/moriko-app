@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - functional
 
 jobs:
   deploy:
@@ -28,8 +27,11 @@ jobs:
           git checkout -f main
           git reset --hard origin/main
 
-          sudo cp /home/ubuntu/moriko-app/index.html /var/www/html/index.html
-          sudo cp /home/ubuntu/moriko-app/index.css /var/www/html/index.css
+          sudo cp -r /home/ubuntu/moriko-app/Main/. /var/www/html/
+          sudo cp -r /home/ubuntu/moriko-app/node-modules/. /var/www/html
+          sudo cp /home/ubuntu/moriko-app/package-lock.json /var/www/html
+          sudo cp /home/ubuntu/moriko-app/package.json /var/www/html
+          
 
           sudo systemctl reload nginx
           echo "Deployment completed on $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
