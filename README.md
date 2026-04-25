@@ -11,8 +11,8 @@ Elizabeth Mõistlik (tester)
 **Security:** Cloudflare\
 **Deployment:** Oracle Cloud\
 _Image: Ubuntu 24.04_\
-_VM Instance: morikoapp 207.127.92.120_\
-_VCN: moriko_cloud_
+_VM Instance: morikoappb 207.127.92.120_\
+_VCN: moriko_vcn
 
 **E-mail:** Gmail -> Cloudflare -> sendgrid\
 **Veebileht:** moriko.app
